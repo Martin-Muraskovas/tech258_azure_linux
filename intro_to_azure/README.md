@@ -29,3 +29,35 @@ Users can access these services over the internet, allowing them to build, deplo
 ## Why use the Azure Pricing Calculator? 
 - The Azure Pricing Calculator helps users estimate their monthly Azure costs based on their usage patterns and requirements.
 - It allows users to select Azure services, configure them based on their needs, and get an estimated cost breakdown to help in budgeting and planning for Azure usage.
+
+## Further Research
+
+### Microservices
+Microservices are a way to design and build software applications as a collection of small, independent services that focus on specific business functions. Each microservice runs its own process and communicates with other services through well-defined APIs.
+
+In Azure, microservices can be implemented using Azure Service Fabric, Azure Kubernetes Service (AKS), or Azure Functions. These Azure services help in deploying, scaling, and managing microservices-based applications efficiently.
+
+### Azure vs AWS for DevOps
+Azure for DevOps:
+- Azure DevOps Services for collaboration and CI/CD.
+- Azure Pipelines for building, testing, and deployment.
+- Azure DevTest Labs for testing environments.
+- Azure Monitor for application monitoring.
+
+AWS for DevOps:
+- AWS Developer Tools like CodePipeline, CodeBuild, CodeDeploy.
+- AWS CloudFormation for infrastructure as code.
+- AWS Elastic Beanstalk for application deployment.
+- AWS CloudWatch for monitoring and logs.
+
+Key Differences:
+- Azure integrates well with Microsoft technologies.
+- AWS offers a wide range of cloud services.
+- Different pricing models between Azure and AWS.
+- AWS has a larger user community.
+
+Considerations:
+- Choose Azure for Microsoft technology integration.
+- Choose AWS for extensive cloud services and community support.
+- Evaluate specific DevOps requirements for the best fit.
+
