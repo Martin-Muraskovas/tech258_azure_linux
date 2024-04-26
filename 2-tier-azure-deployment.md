@@ -50,6 +50,8 @@ When setting up the database instance, do not set up the MongoDB port, this is m
   Azure requires you to set up a VNet while AWS uses VPC(Virtual Private Cloud).
 - Subnet set-up.
   For the 2 tier app set up in AWS a subnet was not required, while in Azure it was.
+- Azure Static IP
+  The public IP on Azure is its own resource. When your instance is started the public IP remains the same. While on AWS it changes every time.
 - Security groups.
   Azure uses Network Security Groups (NSGs) to control inbound and outbound traffic while AWS utilizes Security Groups to control traffic at the instance level.
 - Tagging names.
