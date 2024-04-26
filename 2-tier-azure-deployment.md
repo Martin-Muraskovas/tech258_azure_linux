@@ -62,3 +62,18 @@ When setting up the database instance, do not set up the MongoDB port, this is m
 
 - Inbound rules vs Outbound rules<br>
   Due to setting up a VNet, the rules for setting inbound and outbound rules are slightly different. Azure intuitively knows that any instances communicating privately on a virtual netowork are safe. For example in our 2-tier deployment we did not have to configure our MongoDB port due to the VNet handling that for us because it is a private connection that is within our virtual network.
+
+## Levels of Automation
+
+Speed to deploy<br>
+Manually (requires ssh'ing in)<br>
+-><br>
+Bash script (requires ssh'ing in)<br>
+-><br>
+User data<br>
+-><br>
+AWS - AMI (Amazon Machine Image), Azure - Machine Image<br>
+<br>
+
+Speed at which it runs<br>
+Using an image increases the speed at which it runs because all of the dependencies will be pre installed within that image. For the example of our 2 tier app deployment. The custom image for the app will already have nginx and node.js installed.
