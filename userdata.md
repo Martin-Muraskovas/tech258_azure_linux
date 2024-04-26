@@ -21,3 +21,13 @@ SSH in to validate that userdata has worked.
 Check the Public IP to ensure the userdata has worked.
 ![alt text](image-3.png)
 View public IP of app instance to validate that userdata has worked.
+
+## Creating an Image
+![alt text](image-6.png)
+
+
+## Deploying from an image.
+
+![alt text](image-7.png)
+
+Then create your VM from normal
