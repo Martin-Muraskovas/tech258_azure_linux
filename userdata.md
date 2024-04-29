@@ -7,6 +7,12 @@
   
 - Only runs once immediately after VM is created.
 
+### Why is userdata imporant.
+- Using userdata to set up our instances is a crucial method of saving time. Although the commands will run at the same speed, we will not have to log in and enter them ourselves.
+- This is especially important for if we are launching a large amount of the same environent. You can launch several and they will be setting themselves up with userdata concurrently. <br>
+
+![alt text](image-8.png)
+
 ## Setting up a 2-tier deployment
 Set up your VM using this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). However before deploying, go to the advanced section and do the following:
 
