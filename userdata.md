@@ -33,6 +33,8 @@ View public IP of app instance to validate that userdata has worked.<br>
 ## Creating an Image
 Follow the creating a Virtual Machine [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). Set up the environment within the virtual machine so that all of the dependencies are installed.<br>
 
+Remeber to set up a generlised image instead of a specialised image. You will need to use `waagent -deprovision+user` to generalise the image.<br>
+
 This is the script we will pass as userdata to create a VM that we will take a snapshot of and save as an Image:<br>
 ```
 #!/bin/bash
@@ -80,3 +82,5 @@ npm start
 
 ![alt text](image-7.png)
 Deploying from an image is the same process as deploying a regular VM, the only exception is that you will be deploying from an image that you have created rather than a prepackaged image from Azure. You can refer to this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md) to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
+
+## Side effects of creating an Image.
