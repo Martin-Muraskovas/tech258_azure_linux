@@ -12,23 +12,63 @@ Set up your VM using this [guide](https://github.com/Martin-Muraskovas/tech258_a
 
 ### userdata for the database.
 ![alt text](image.png)<br>
-SSH in to validate that userdata has worked.
+SSH in to validate that userdata has worked.<br>
 ![alt text](image-2.png)
 
 
 ### userdata for the app.
-![alt text](image-4.png)
-Check the Public IP to ensure the userdata has worked.
-![alt text](image-3.png)
-View public IP of app instance to validate that userdata has worked.
+![alt text](image-4.png)<br>
+Check the Public IP to ensure the userdata has worked.<br>
+![alt text](image-3.png)<br>
+View public IP of app instance to validate that userdata has worked.<br>
 
 ## Creating an Image
 Follow the creating a Virtual Machine [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). Set up the environment within the virtual machine so that all of the dependencies are installed.<br>
-Use this button to begin creating an image of your VM:
-![alt text](image-6.png)
 
+This is the script we will pass as userdata to create a VM that we will take a snapshot of and save as an Image:<br>
+```
+#!/bin/bash
+
+sudo DEBIAN_FRONTEND=noninteractive apt update -y
+
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+
+sudo DEBIAN_FRONTEND=noninteractive apt install nginx -y
+
+sudo sed -i '51s/.*/\t        proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
+
+sudo systemctl restart nginx
+
+sudo systemctl enable nginx
+
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo DEBIAN_FRONTEND=noninteractive -E bash - &&\
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
+
+mkdir ~/apps
+cd ~/apps
+
+git clone https://github.com/Martin-Muraskovas/tech258-sparta-test-app.git
+```
+<br> In our case we are downloading and installing nginx and node on our system. We are not yet loading the app. It is at this point that we create an image.
+
+Use this button to begin creating an image of your VM:
+![alt text](image-6.png)<br>
+
+Once we have created an image. We can create a new VM based on that image. When creating a VM from our image we will pass this script as userdata. This script essentially just launches the application:
+
+```
+#!/bin/bash
+
+cd ~/apps/tech258-sparta-test-app/app
+
+export DB_HOST=mongodb://10.0.3.5:27017/posts
+
+sudo -E npm install
+
+npm start
+```
 
 ## Deploying from an image.
 
 ![alt text](image-7.png)
-Then create your VM as usual. You can refer to this guide to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
+Deploying from an image is the same process as deploying a regular VM, the only exception is that you will be deploying from an image that you have created rather than a prepackaged image from Azure. You can refer to this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md) to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
