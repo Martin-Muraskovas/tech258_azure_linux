@@ -23,11 +23,12 @@ Check the Public IP to ensure the userdata has worked.
 View public IP of app instance to validate that userdata has worked.
 
 ## Creating an Image
+Follow the creating a Virtual Machine [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). Set up the environment within the virtual machine so that all of the dependencies are installed.<br>
+Use this button to begin creating an image of your VM:
 ![alt text](image-6.png)
 
 
 ## Deploying from an image.
 
 ![alt text](image-7.png)
-
-Then create your VM from normal
+Then create your VM as usual. You can refer to this guide to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
