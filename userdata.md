@@ -8,19 +8,21 @@
 - Only runs once immediately after VM is created.
 
 ## Setting up a 2-tier deployment
-Set up your VM using this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). However before deploying, go to the advanced section and do the following. 
+Set up your VM using this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). However before deploying, go to the advanced section and do the following:
 
 ### userdata for the database.
+Ensure your script is completely functional, then pass it through the User data field in the advanced tab as shown here:<br>
 ![alt text](image.png)<br>
 SSH in to validate that userdata has worked.<br>
 ![alt text](image-2.png)
 
 
 ### userdata for the app.
+Ensure your script is completely functional, then pass it through the User data field in the advanced tab as shown here:<br>
 ![alt text](image-4.png)<br>
-Check the Public IP to ensure the userdata has worked.<br>
-![alt text](image-3.png)<br>
 View public IP of app instance to validate that userdata has worked.<br>
+![alt text](image-3.png)<br>
+
 
 ## Creating an Image
 Follow the creating a Virtual Machine [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). Set up the environment within the virtual machine so that all of the dependencies are installed.<br>
