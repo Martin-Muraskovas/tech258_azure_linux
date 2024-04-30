@@ -10,10 +10,16 @@
 ### Why is userdata imporant.
 - Using userdata to set up our instances is a crucial method of saving time. Although the commands will run at the same speed, we will not have to log in and enter them ourselves.
 - This is especially important for if we are launching a large amount of the same environent. You can launch several and they will be setting themselves up with userdata concurrently. <br>
+- If you use userdata to run an app but have to manually SSH in to run your app. You have some options:
+  - `sudo -E`
+  - Change permisions of the app folder recursively.
+    - `sudo chmod`
+  - Change the owner of the folder.
+  - Login temporarily as root user.
 
 ![alt text](image-8.png)
 
-## Setting up a 2-tier deployment
+## Setting up a 2-tier deployment using userdata
 Set up your VM using this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). However before deploying, go to the advanced section and do the following:
 
 ### userdata for the database.
@@ -34,6 +40,9 @@ View public IP of app instance to validate that userdata has worked.<br>
 Follow the creating a Virtual Machine [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). Set up the environment within the virtual machine so that all of the dependencies are installed.<br>
 
 Remeber to set up a generlised image instead of a specialised image. You will need to use `waagent -deprovision+user` to generalise the image.<br>
+
+- A generalised image is a template that does not contain specific configurations or data related to a particular workload.
+- A specialised image is a template that is pre-configured with specific configurations, applications, and data tailored for a particular workload.
 
 This is the script we will pass as userdata to create a VM that we will take a snapshot of and save as an Image:<br>
 ```
@@ -80,7 +89,9 @@ npm start
 
 ## Deploying from an image.
 
-![alt text](image-7.png)
-Deploying from an image is the same process as deploying a regular VM, the only exception is that you will be deploying from an image that you have created rather than a prepackaged image from Azure. You can refer to this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md) to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
+![alt text](image-9.png)
+Deploying from an image is the same process as deploying a regular VM, the only exception is that you will be deploying from an image that you have created rather than a prepackaged image from Azure.<br>
+You can refer to this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md) to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
 
 ## Side effects of creating an Image.
+- The virtual machine that is used to create the image will no longer be running as it will be deallocated.
