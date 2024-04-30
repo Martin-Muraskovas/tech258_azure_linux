@@ -2,9 +2,7 @@
 
 ## About userdata
 - Runs as root user (i.e. every command will be run as sudo whether you've put sudo in the command or not).
-  
 - Starting file location is `/`.
-  
 - Only runs once immediately after VM is created.
 
 ### Why is userdata imporant.
