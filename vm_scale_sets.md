@@ -83,7 +83,7 @@ This diagram demonstrates how autoscaling works:<br>
   - Upgrading does not change the instance size or the OS disk, but it updates the host environment. This is a method of modifying userdata as you can change your userdata and then upgrade to apply the new userdata.
 
 ## How to create an unhealthy instance.
-
+If you stop one of the running instances and then start it again. It will not run the userdata. This creates an unhealthy instance. If it remains unhealthy for 10 minutes then the instance will be terminated and the autoscaler will create a new one as there will be less than the minimum number of instances running.
 
 ## How to delete a VM scale set.
 I have found that the easiest way to delete a VM scale set is to go into the resource group and delete these three things:<br>
