@@ -74,7 +74,7 @@ This diagram demonstrates how autoscaling works:<br>
 
   - Internal facing load balancer<br>
     Balances the load between VM instances serving specific internal applications or services without exposing them to the public internet.
-# How to manage the instances within your scale set
+## How to manage the instances within your scale set
 - SSH'ing in
   - `ssh -i tech258-martin-az-key -p 50000 adminuser@4.158.77.158`
   - You have to SSH in through the public IP of the load balancer. You also need to add port 50000 to SSH into your first instance.
@@ -82,11 +82,14 @@ This diagram demonstrates how autoscaling works:<br>
   - Reimaging replaces the OS disk on all instances with a new one. This will essentially start you off with a fresh instance that has the image you selected on it from when you set up your scale set.
   - Upgrading does not change the instance size or the OS disk, but it updates the host environment. This is a method of modifying userdata as you can change your userdata and then upgrade to apply the new userdata.
 
+## How to create an unhealthy instance.
 
 
-steps on how to create an unhealthy instance (for testing) and why it is marked as healthy/unhealthy 
-
-steps on how to delete a VM Scale Set and all it's connecting parts
+## How to delete a VM scale set.
+I have found that the easiest way to delete a VM scale set is to go into the resource group and delete these three things:<br>
+- The load balancer.
+- The public IP address.
+- The VM scale set.
 
 
 
