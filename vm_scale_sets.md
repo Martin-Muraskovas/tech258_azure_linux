@@ -42,28 +42,28 @@ Our instances are highly scalable due to the custom autoscale that we set up whe
 ## How to create a scale set on Azure
 
 To begin creating a scale set on Azure, search for "Virtual machine scale sets" in the search bar and select "Virtual machine scale sets".<br>
-![](image-27.png)<br>
+![](<images 2/image-27.png>)<br>
 The approach is very similar to setting up a virtual machine, however there are a few key differences:
 
 Basics<br>
-![](image-23.png)<br>
+![](<images 2/image-23.png>)<br>
 
 Scaling configuration<br>
-![](image-26.png)<br>
+![](<images 2/image-26.png>)<br>
 
 Networking<br>
-![](image-24.png)<br>
+![](<images 2/image-24.png>)<br>
 
 Load Balancer<br>
-![](image-22.png)<br>
+![](<images 2/image-22.png>)<br>
 
 Advanced - userdata<br>
-![](image-25.png)<br>
+![](<images 2/image-25.png>)<br>
 
 ## How does autoscaling work?
 
 This diagram demonstrates how autoscaling works:<br>
-![](<New Project (1) (1).png>)<br>
+![](<images 2/New Project (1) (1).png>)<br>
 
 ## What is a load balancer and why it is needed?
   - Balancing availability zones<br>
