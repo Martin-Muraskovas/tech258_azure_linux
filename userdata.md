@@ -15,23 +15,23 @@
   - Change the owner of the folder.
   - Login temporarily as root user.
 
-![alt text](image-8.png)
+![alt text](<images 2/image-8.png>)
 
 ## Setting up a 2-tier deployment using userdata
 Set up your VM using this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). However before deploying, go to the advanced section and do the following:
 
 ### userdata for the database.
 Ensure your script is completely functional, then pass it through the User data field in the advanced tab as shown here:<br>
-![alt text](image.png)<br>
+![alt text](<images 2/image.png>)
 SSH in to validate that userdata has worked.<br>
-![alt text](image-2.png)
+![alt text](<images 2/image-2.png>)
 
 
 ### userdata for the app.
 Ensure your script is completely functional, then pass it through the User data field in the advanced tab as shown here:<br>
-![alt text](image-4.png)<br>
+![alt text](<images 2/image-4.png>)<br>
 View public IP of app instance to validate that userdata has worked.<br>
-![alt text](image-3.png)<br>
+![alt text](<images 2/image-3.png>)<br>
 
 
 ## Creating an Image
@@ -87,7 +87,7 @@ npm start
 
 ## Deploying from an image.
 
-![alt text](images 2/image-9.png)
+![alt text](<images 2/image-9.png>)
 Deploying from an image is the same process as deploying a regular VM, the only exception is that you will be deploying from an image that you have created rather than a prepackaged image from Azure.<br>
 You can refer to this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md) to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
 

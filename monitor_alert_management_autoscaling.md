@@ -1,6 +1,6 @@
 
 # Monitoring, Alert Management, and Autoscaling
-![alt text](<New Project.png>)
+![alt text](<images 2/New Project.png>)
 
 
 ## Autoscaling vs scaling up vs scaling down
@@ -28,16 +28,16 @@
 
 ## Setting up a Dashboard on Azure
 1. To set up our dashboard, we begin by going to our instance overview. From there we select the monitoring tab and pin one of the graphs that we would like to include in our dashboard.<br>
-![](image-16.png)<br>
+![](<images 2/image-16.png>)<br>
 
 2. We will be creating a shared dashboard so select the shared option.<br>
-![](image-10.png)<br>
+![](<images 2/image-10.png>)<br>
 
 3. Press edit to rearrange the dashboard how you would like it.<br>
-![](image-12.png)<br>
+![](<images 2/image-12.png>)<br>
 
 4. Edit individual charts by selecting the context menu on the chart you want to edit. <br>
-![](image-13.png)<br>
+![](<images 2/image-13.png>)<br>
 
 ## Load testing with Apache
 Use this command to install Apache Benchmark:<br>
@@ -53,15 +53,15 @@ Upon entering these commands, you can see the spikes in the monitoring line grap
 
 ## Setting up an Alert
 - To create a new alert rule use this button.<br>
-![](image-17.png)<br>
+![](<images 2/image-17.png>)<br>
 
 - Then fill out the rule conditions. In our case we want to receive an alert when the CPU usage has exceeded 6%. <br>
-![](image-18.png)<br>
+![](<images 2/image-18.png>)<br>
 
 - Ensure that Email is selected.<br>
-![](image-19.png)<br>
+![](<images 2/image-19.png>)<br>
 
 - Once your alert is set up. Use the ab command refered to in the apache section of this document to ensure that the CPU exceeds 6%. You will then recieve an Email once the threshold has been exceeded.<br>
 
-    ![](image-15.png)
+    ![](<images 2/image-15.png>)
 

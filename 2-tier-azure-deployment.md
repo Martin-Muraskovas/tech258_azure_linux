@@ -76,4 +76,7 @@ AWS - AMI (Amazon Machine Image), Azure - Machine Image<br>
 <br>
 
 Speed at which it runs<br>
-Using an image increases the speed at which it runs because all of the dependencies will be pre installed within that image. For the example of our 2 tier app deployment. The custom image for the app will already have nginx and node.js installed.
+- Using an image increases the speed at which it runs because all of the dependencies will be pre installed within that image. For the example of our 2 tier app deployment. The custom image for the app will already have nginx and node.js installed.
+- In the case of our app, we can use some user data so that the app can be run automatically upon restart.
+
+## How to compeletely remove a VM
