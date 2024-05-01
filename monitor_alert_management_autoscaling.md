@@ -52,14 +52,16 @@ Upon entering these commands, you can see the spikes in the monitoring line grap
 <br>
 
 ## Setting up an Alert
-To create a new alert rule use this button.<br>
+- To create a new alert rule use this button.<br>
 ![](image-17.png)<br>
 
-Then fill out the rule conditions. In our case we want to receive an alert when the CPU usage has exceeded 6%. <br>
+- Then fill out the rule conditions. In our case we want to receive an alert when the CPU usage has exceeded 6%. <br>
 ![](image-18.png)<br>
 
-Ensure that Email is selected.<br>
+- Ensure that Email is selected.<br>
 ![](image-19.png)<br>
 
-Once your alert is set up. Use the ab command refered to in the apache section of this document to ensure that the CPU exceeds 6%. You will then recieve an Email once the threshold has been exceeded.<br>
-![](image-15.png)
+- Once your alert is set up. Use the ab command refered to in the apache section of this document to ensure that the CPU exceeds 6%. You will then recieve an Email once the threshold has been exceeded.<br>
+
+    ![](image-15.png)
+

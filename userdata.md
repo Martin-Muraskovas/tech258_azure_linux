@@ -37,7 +37,7 @@ View public IP of app instance to validate that userdata has worked.<br>
 ## Creating an Image
 Follow the creating a Virtual Machine [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md). Set up the environment within the virtual machine so that all of the dependencies are installed.<br>
 
-Remeber to set up a generlised image instead of a specialised image. You will need to use `waagent -deprovision+user` to generalise the image.<br>
+Remeber to set up a generlised image instead of a specialised image. You will need to use `sudo waagent -deprovision+user` to generalise the image.<br>
 
 - A generalised image is a template that does not contain specific configurations or data related to a particular workload.
 - A specialised image is a template that is pre-configured with specific configurations, applications, and data tailored for a particular workload.
@@ -69,7 +69,7 @@ git clone https://github.com/Martin-Muraskovas/tech258-sparta-test-app.git
 <br> In our case we are downloading and installing nginx and node on our system. We are not yet loading the app. It is at this point that we create an image.
 
 Use this button to begin creating an image of your VM:
-![alt text](image-6.png)<br>
+![alt text](images 2/image-6.png)<br>
 
 Once we have created an image. We can create a new VM based on that image. When creating a VM from our image we will pass this script as userdata. This script essentially just launches the application:
 
@@ -87,7 +87,7 @@ npm start
 
 ## Deploying from an image.
 
-![alt text](image-9.png)
+![alt text](images 2/image-9.png)
 Deploying from an image is the same process as deploying a regular VM, the only exception is that you will be deploying from an image that you have created rather than a prepackaged image from Azure.<br>
 You can refer to this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md) to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
 
