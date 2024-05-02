@@ -46,18 +46,15 @@ To begin creating a scale set on Azure, search for "Virtual machine scale sets" 
 The approach is very similar to setting up a virtual machine, however there are a few key differences:
 
 Basics<br>
+In our basics section, we need to include the availability zones that we would like our machines to be deployed on. We also need to select a uniform orchestration mode.<br>
 ![](<images 2/image-23.png>)<br>
-
-Scaling configuration<br>
+Our scaling mode should be set to autoscaling. To use autoscaling we need to set up a custom autoscale:<br>
 ![](<images 2/image-26.png>)<br>
-
-Networking<br>
+Our scale set will also require a custom NIC, this is located on the networking tab:<br>
 ![](<images 2/image-24.png>)<br>
-
-Load Balancer<br>
+Our load balancer is used to direct traffic from port 80 to the most suitable VM instance. We have additionally set it up to direct SSH traffic on port 22, to ports beginning at 50000. For example, to access our first VM we would connect to port 50000, but to access our second port we would connect to port 50001.<br>
 ![](<images 2/image-22.png>)<br>
-
-Advanced - userdata<br>
+Each instance that we will be running will require a little bit of userdata. This specific situation requires us to launch our app, we use userdata to do this because you are not able to have the running app be captured in an Image.<br>
 ![](<images 2/image-25.png>)<br>
 
 ## How does autoscaling work?
@@ -78,8 +75,11 @@ This diagram demonstrates how autoscaling works:<br>
 - SSH'ing in
   - `ssh -i tech258-martin-az-key -p 50000 adminuser@4.158.77.158`
   - You have to SSH in through the public IP of the load balancer. You also need to add port 50000 to SSH into your first instance.
+  
 - Reimaging vs Upgrading
+
   - Reimaging replaces the OS disk on all instances with a new one. This will essentially start you off with a fresh instance that has the image you selected on it from when you set up your scale set.
+
   - Upgrading does not change the instance size or the OS disk, but it updates the host environment. This is a method of modifying userdata as you can change your userdata and then upgrade to apply the new userdata.
 
 ## How to create an unhealthy instance.
@@ -89,7 +89,8 @@ If you stop one of the running instances and then start it again. It will not ru
 I have found that the easiest way to delete a VM scale set is to go into the resource group and delete these three things:<br>
 - The load balancer.
 - The public IP address.
-- The VM scale set.
+- The VM scale set.<br>
+Remember to use a conventional naming method so that you can easily locate these things when trying to delete them.
 
 
 
