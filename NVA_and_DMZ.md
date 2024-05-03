@@ -123,15 +123,15 @@ echo ""
 - Deny everything else <br>
 ![alt text](image-4.png)<br>
 Ensure that the priority of denying everything is a larger number than the "allow" rules otherwise nothing will be allowed through.<br>
-![alt text](image-5.png)
-
-
+![alt text](image-5.png)<br>
+By default there are rules that cannot be changed in a NSG. You need to ensure that the Deny All rule is prioritised higher than these.
 
 
 ## Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.
 - Configuring the bind ip so that only the app can send requests to the database is the next step in increasing security after implementing the NVA.
 - To do this:
   1. SSH into your app instance
-  2. While in your app instance, SSH into your database instance.
-  3. Enter the following command, replacing "0.0.0.0" with the private IP of your app instance.
+  2. Use the `scp` command to copy your SSH key into your app instance.
+  3. While in your app instance, SSH into your database instance.
+  4. Enter the following command, replacing "0.0.0.0" with the private IP of your app instance.
         -`sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/g' /etc/mongod.conf`
