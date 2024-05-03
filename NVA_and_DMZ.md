@@ -49,7 +49,7 @@ The database should use availability zone 3.
 1. Search route tables in the Azure UI.
 2. Select route tables.
 3. Set up a new route table.
-4. Add a route to this route table with the following parameters:
+4. Add a route to this route table with the following parameters:<br>
 ![alt text](images3/image6.png)
 
 ### Configuring IP forwarding within your NVA instance. 
