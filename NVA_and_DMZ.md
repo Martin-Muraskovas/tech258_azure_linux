@@ -51,6 +51,7 @@ The database should use availability zone 3.
 3. Set up a new route table.
 4. Add a route to this route table with the following parameters:<br>
 ![alt text](images3/image6.png)
+5. Associate your route table with your public subnet.
 
 ### Configuring IP forwarding within your NVA instance. 
 1. SSH into your NVA instance.
