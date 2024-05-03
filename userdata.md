@@ -87,7 +87,7 @@ npm start
 
 ## Deploying from an image.
 
-![alt text](<images 2/image-9.png>)
+![alt text](<images 2/image-9.png>)<br>
 Deploying from an image is the same process as deploying a regular VM, the only exception is that you will be deploying from an image that you have created rather than a prepackaged image from Azure.<br>
 You can refer to this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/2-tier-azure-deployment.md) to streamline the process, also you may want to refer to the userdata section of this document to automate tasks like running an application or launching a database.
 
