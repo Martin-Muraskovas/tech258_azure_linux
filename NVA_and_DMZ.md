@@ -135,4 +135,4 @@ By default there are rules that cannot be changed in a NSG. You need to ensure t
   2. Use the `scp` command to copy your SSH key into your app instance.
   3. While in your app instance, SSH into your database instance.
   4. Enter the following command, replacing "0.0.0.0" with the private IP of your app instance.
-        -`sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/g' /etc/mongod.conf`
+        `sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/g' /etc/mongod.conf`
