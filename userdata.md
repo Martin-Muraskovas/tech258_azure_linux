@@ -69,7 +69,7 @@ git clone https://github.com/Martin-Muraskovas/tech258-sparta-test-app.git
 <br> In our case we are downloading and installing nginx and node on our system. We are not yet loading the app. It is at this point that we create an image.
 
 Use this button to begin creating an image of your VM:
-![alt text](images 2/image-6.png)<br>
+![alt text](<images 2/image-6.png>)<br>
 
 Once we have created an image. We can create a new VM based on that image. When creating a VM from our image we will pass this script as userdata. This script essentially just launches the application:
 
