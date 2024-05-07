@@ -24,7 +24,7 @@ Our instances are highly scalable due to the custom autoscale that we set up whe
 
 ## What do you need to have done and tested before making a scale set?
 - A working image
-  - In our case, we are deploying an app. Our image should have all dependencies for the application pre installed. In our case we need: our cloned app repo, pm2, nginx, and node.
+  - In our case, we are deploying an app. Our image should have all dependencies for the application pre installed. In our case we need: our cloned app repo, pm2, nginx, and node.js.
 - Working userdata
   - To run the app from our image, we need a little bit of userdata just to run the app. Here is what this looks like:
     ```
