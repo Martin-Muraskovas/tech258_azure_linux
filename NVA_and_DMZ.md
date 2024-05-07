@@ -7,11 +7,11 @@
   - [Implementation of a NVA on App + DB deployment](#implementation-of-a-nva-on-app--db-deployment)
   - [1. Create a new VNet that has 3 subnets](#1-create-a-new-vnet-that-has-3-subnets)
   - [2. Set up your NVA instance](#2-set-up-your-nva-instance)
-  - [4. Set up a route table](#4-set-up-a-route-table)
-  - [5. Configuring IP forwarding within your NVA instance.](#5-configuring-ip-forwarding-within-your-nva-instance)
-  - [6. Configuring an IP table on your NVA instance.](#6-configuring-an-ip-table-on-your-nva-instance)
-  - [7. (Optional) Creating stricter rules on the database's network security group](#7-optional-creating-stricter-rules-on-the-databases-network-security-group)
-  - [8. (Optional) Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.](#8-optional-restricting-the-bind-ip-so-that-only-the-ips-that-can-send-requests-to-the-database-are-from-the-app-instance)
+  - [3. Set up a route table](#3-set-up-a-route-table)
+  - [4. Configuring IP forwarding within your NVA instance.](#4-configuring-ip-forwarding-within-your-nva-instance)
+  - [5. Configuring an IP table on your NVA instance.](#5-configuring-an-ip-table-on-your-nva-instance)
+  - [6. (Optional) Creating stricter rules on the database's network security group](#6-optional-creating-stricter-rules-on-the-databases-network-security-group)
+  - [7. (Optional) Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.](#7-optional-restricting-the-bind-ip-so-that-only-the-ips-that-can-send-requests-to-the-database-are-from-the-app-instance)
 
 
 # Implementing an NVA into a 2-tier architecture on Azure to increase security of a database.
@@ -61,7 +61,7 @@ Adding more layers of security is a simple way of increasing security. A DMZ is 
     ![alt text](images3/image4.png)<br>
 
 
-## 4. Set up a route table
+## 3. Set up a route table
 1. Search route tables in the Azure UI.
 2. Select route tables.
 3. Set up a new route table.
@@ -69,14 +69,14 @@ Adding more layers of security is a simple way of increasing security. A DMZ is 
 ![alt text](images3/image6.png)
 5. Associate your route table with your public subnet.
 
-## 5. Configuring IP forwarding within your NVA instance. 
+## 4. Configuring IP forwarding within your NVA instance. 
 1. SSH into your NVA instance.
 2. Use the `sysctl net.ipv4.ip_forward` command to check if ip forwarding is enabled. It should not be enabled yet.
 3. Access the sysctl config file using the `sudo nano /etc/sysctl.conf` command.
 4. Uncomment the line `net.ipv4.ip_forward = 1`
 5. Restart the process by using the `sudo sysctl -p`
 
-## 6. Configuring an IP table on your NVA instance.
+## 5. Configuring an IP table on your NVA instance.
 When configuring an IP table you may lock yourself out if you don't do things carefully. You must load the rules in the right order.
 
 Ensure you `sudo apt update -y` and `sudo apt upgrade -y` before running any scripts on your instance.
@@ -129,7 +129,7 @@ echo ""
 
 ```
 
-## 7. (Optional) Creating stricter rules on the database's network security group
+## 6. (Optional) Creating stricter rules on the database's network security group
 
 - Allow SSH from public subnet <br>
 ![alt text](image-1.png)<br>
@@ -144,7 +144,7 @@ Ensure that the priority of denying everything is a larger number than the "allo
 By default there are rules that cannot be changed in a NSG. You need to ensure that the Deny All rule is prioritised higher than these.
 
 
-## 8. (Optional) Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.
+## 7. (Optional) Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.
 - Configuring the bind ip so that only the app can send requests to the database is the next step in increasing security after implementing the NVA.
 - To do this:
   1. SSH into your app instance
