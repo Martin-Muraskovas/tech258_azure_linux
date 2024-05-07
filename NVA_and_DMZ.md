@@ -27,14 +27,14 @@ Adding more layers of security is a simple way of increasing security. A DMZ is 
     ![alt text](images3/image.png)<br>
     ![alt text](images3/image2.png)<br>
 
-### Run the Database and then the App
-Use this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/userdata.md) to get your app and database running using images and userdata.
+    ### Run the Database and then the App
+    Use this [guide](https://github.com/Martin-Muraskovas/tech258_azure_linux/blob/main/userdata.md) to get your app and database running using images and userdata.
 
-Ensure that the VNet that you use is your new 3 subnet VNet and not your previous 2 subnet VNet.
+    Ensure that the VNet that you use is your new 3 subnet VNet and not your previous 2 subnet VNet.
 
-The app should use availability zone 1.<br>
-The NVA should use availability zone 2.<br>
-The database should use availability zone 3.
+    The app should use availability zone 1.<br>
+    The NVA should use availability zone 2.<br>
+    The database should use availability zone 3.
 
 ## 2. Set up your NVA instance
 1. Create a blank instance using Ubuntu 22.04 and have port 22 enabled.
