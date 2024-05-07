@@ -1,3 +1,19 @@
+- [Implementing an NVA into a 2-tier architecture on Azure to increase security of a database.](#implementing-an-nva-into-a-2-tier-architecture-on-azure-to-increase-security-of-a-database)
+  - [NVA](#nva)
+  - [DMZ](#dmz)
+  - [Route table](#route-table)
+  - [Why are things more secure this way](#why-are-things-more-secure-this-way)
+  - [How will we be implementing an NVA into our 2-tier app deployment?](#how-will-we-be-implementing-an-nva-into-our-2-tier-app-deployment)
+  - [Implementation of a NVA on App + DB deployment](#implementation-of-a-nva-on-app--db-deployment)
+  - [1. Create a new VNet that has 3 subnets](#1-create-a-new-vnet-that-has-3-subnets)
+  - [2. Set up your NVA instance](#2-set-up-your-nva-instance)
+  - [4. Set up a route table](#4-set-up-a-route-table)
+  - [5. Configuring IP forwarding within your NVA instance.](#5-configuring-ip-forwarding-within-your-nva-instance)
+  - [6. Configuring an IP table on your NVA instance.](#6-configuring-an-ip-table-on-your-nva-instance)
+  - [7. (Optional) Creating stricter rules on the database's network security group](#7-optional-creating-stricter-rules-on-the-databases-network-security-group)
+  - [8. (Optional) Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.](#8-optional-restricting-the-bind-ip-so-that-only-the-ips-that-can-send-requests-to-the-database-are-from-the-app-instance)
+
+
 # Implementing an NVA into a 2-tier architecture on Azure to increase security of a database.
 
 ## NVA
