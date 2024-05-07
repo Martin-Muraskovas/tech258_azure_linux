@@ -22,7 +22,7 @@ Adding more layers of security is a simple way of increasing security. A DMZ is 
 
 ## Implementation of a NVA on App + DB deployment
 
-### Create a new VNet
+## 1. Create a new VNet that has 3 subnets
 - This VNet will require 3 subnets as one will be allocated to the app, the DMZ, and the Database (in that order).<br>
     ![alt text](images3/image.png)<br>
     ![alt text](images3/image2.png)<br>
@@ -36,7 +36,7 @@ The app should use availability zone 1.<br>
 The NVA should use availability zone 2.<br>
 The database should use availability zone 3.
 
-## Setting up your NVA instance
+## 2. Set up your NVA instance
 1. Create a blank instance using Ubuntu 22.04 and have port 22 enabled.
 2. Go to Networking, then network settings.
 3. Select your net interface.<br>
@@ -45,7 +45,7 @@ The database should use availability zone 3.
     ![alt text](images3/image4.png)<br>
 
 
-### Set up a route table
+## 4. Set up a route table
 1. Search route tables in the Azure UI.
 2. Select route tables.
 3. Set up a new route table.
@@ -53,14 +53,14 @@ The database should use availability zone 3.
 ![alt text](images3/image6.png)
 5. Associate your route table with your public subnet.
 
-### Configuring IP forwarding within your NVA instance. 
+## 5. Configuring IP forwarding within your NVA instance. 
 1. SSH into your NVA instance.
 2. Use the `sysctl net.ipv4.ip_forward` command to check if ip forwarding is enabled. It should not be enabled yet.
 3. Access the sysctl config file using the `sudo nano /etc/sysctl.conf` command.
 4. Uncomment the line `net.ipv4.ip_forward = 1`
 5. Restart the process by using the `sudo sysctl -p`
 
-### Configuring an IP table on your NVA instance.
+## 6. Configuring an IP table on your NVA instance.
 When configuring an IP table you may lock yourself out if you don't do things carefully. You must load the rules in the right order.
 
 Ensure you `sudo apt update -y` and `sudo apt upgrade -y` before running any scripts on your instance.
@@ -113,7 +113,7 @@ echo ""
 
 ```
 
-## Creating stricter rules on the database's network security group
+## 7. (Optional) Creating stricter rules on the database's network security group
 
 - Allow SSH from public subnet <br>
 ![alt text](image-1.png)<br>
@@ -128,7 +128,7 @@ Ensure that the priority of denying everything is a larger number than the "allo
 By default there are rules that cannot be changed in a NSG. You need to ensure that the Deny All rule is prioritised higher than these.
 
 
-## Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.
+## 8. (Optional) Restricting the bind IP so that only the IPs that can send requests to the database are from the app instance.
 - Configuring the bind ip so that only the app can send requests to the database is the next step in increasing security after implementing the NVA.
 - To do this:
   1. SSH into your app instance
